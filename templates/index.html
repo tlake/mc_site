@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="/static/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <title>TPants MC</title>
 </head>
@@ -9,18 +10,57 @@
     <h1>TPants MC Server Status</h1>
   </header>
 
-  <div id="content">
+  <div id="main-container">
+
     <div class="panel">
-      <h2>Server Status</h2>
-      <p>MOTD</p>
-      <p>Status</p>
-      <p>IP Address</p>
+      <h2>MOTD</h2>
+      <p>Location: IP Address:Port</p>
+      <p>Status: Status</p>
+      <div class="pulldown-toggle">
+        <h3>Client Configuration:</h3>
+        <i class="fa fa-chevron-down"></i>
+      </div>
+      <div class="pulldown">
+        <div class="pulldown-content">
+          <p>Lorem ipsum</p>
+          <p>Blah fuckin blah</p>
+        </div>
+        <div class="pulldown-close">
+          <i class="fa fa-chevron-up"></i>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <footer>
-    <h4>Powered by <a href="flask.pocoo.org">Flask</a> and <a href="github.com/Dinnerbone/mcstatus">mcstatus</a>.</h4>
+    <h4>Powered by <a href="http://flask.pocoo.org">Flask</a> and <a href="http://github.com/Dinnerbone/mcstatus">mcstatus</a>.</h4>
     <h4>&copy; 2016 Tanner Lake</h4>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script>
+    $(".pulldown-toggle").click(function () {
+      var pulldown = $(this).next('.pulldown');
+      var chevron = $(this).children("i");
+
+      if (pulldown.is(':visible')) {
+        pulldown.slideUp();
+        chevron.removeClass("fa-chevron-up").addClass("fa-chevron-down");
+      } else {
+        pulldown.slideDown();
+        chevron.removeClass("fa-chevron-down").addClass("fa-chevron-up");
+      }
+    });
+
+    $(".pulldown-close").click(function () {
+      var pulldown = $(this).parent(".pulldown");
+      var chevron = $(this).parent().prev(".pulldown-toggle").children("i");
+
+      pulldown.slideUp();
+      chevron.removeClass("fa-chevron-up").addClass("fa-chevron-down");
+
+    });
+  </script>
 </body>
 </html>
