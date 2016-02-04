@@ -2,35 +2,54 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="/static/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/static/css/default.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <title>TPants MC</title>
 </head>
 <body>
-  <header>
-    <h1>TPants MC Server Status</h1>
-  </header>
-
   <div id="main-container">
 
+    <header>
+      <h1>TPants MC Server Status</h1>
+    </header>
+
+  {% if servers %}
+  {% for server in servers %}
     <div class="panel">
-      <h2>MOTD</h2>
-      <p>Location: IP Address:Port</p>
-      <p>Status: Status</p>
+      <h2>{{ server.motd }}</h2>
+      <p>Modpack Version: <span class="info">{{ server.modpack_version }}</span></p>
+      {% if server.jar_version %}
+      <p>Jarfile Version: {{ server.jar_version }}</p>
+      {% endif %}
+      <p>Location: <span class="info">{{ server.address }}:{{ server.port }}</span></p>
+      <p>Status: <span class="info {{ server.status }}">{{ server.status }}</span></p>
+      {% if server.players %}
+      <p>{{ server.players.online }}/{{ server.players.max }} Players</p>
+      <ul class="players-list">
+        {% for player in server.players.names %}
+          <li>{{ player }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
       <div class="pulldown-toggle">
         <h3>Client Configuration:</h3>
         <i class="fa fa-chevron-down"></i>
       </div>
       <div class="pulldown">
         <div class="pulldown-content">
-          <p>{{ servers.testkey }}</p>
-          <p>Lorem ipsum</p>
-          <p>Blah fuckin blah</p>
+          {{ server.client_config|markdown }}
         </div>
         <div class="pulldown-close">
           <i class="fa fa-chevron-up"></i>
         </div>
       </div>
     </div>
+    {% endfor %}
+    {% else %}
+    <div class="panel">
+      <h2>Woops</h2>
+      <p>We don't seem to have any servers up for monitoring right now.</p>
+    </div>
+    {% endif %}
 
   </div>
 

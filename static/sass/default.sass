@@ -3,9 +3,12 @@
 @import "compass/css3/transition"
 
 
-$default-font-face: "Helvetica Neue",Helvetica,Arial,sans-serif
-$default-bg-color: #222
+$default-font-face: "Helvetica Neue", Helvetica, Arial, sans-serif
+$code-font-face: "Lucida Console", Monaco, monospace
 $default-font-color: #9d9d9d
+$online-font-color: #093
+$offline-font-color: #dd0909
+$default-bg-color: #222
 $light-border-color: #9d9d9d
 $dark-border-color: #080808
 $header-height: 4.5em
@@ -26,7 +29,6 @@ html
 
 h1
   font-size: 2.5em
-  // padding: 0.2em
 
 h2
   font-size: 2em
@@ -48,12 +50,7 @@ p
   padding: 0.2em 0em
 
 body
-  // padding-top: $header-height
-  // padding-bottom: $footer-height
-  position: relative
-  margin: 0
   height: 100%
-  // padding-bottom: 6rem
   background-color: darken($default-bg-color, 20%)
 
 header
@@ -64,24 +61,39 @@ header
     padding: 0.5em
 
 #main-container
-  margin: 0 auto
-  padding: 3em
+  min-height: 100%
+  margin-bottom: 4.0625em
+
+#main-container:after
+  content: ""
+  display: block
+
+footer, #main-container:after
+  height: 4.0625em
 
 footer
   +default-theme
   font-style: italic
   border-top: 1px solid $light-border-color
-  position: absolute
-  right: 0
-  bottom: 0
-  left: 0
-  padding: 1rem
+
+.info
+  font-weight: bold
+
+.Online
+  color: $online-font-color
+
+.Offline
+  color: $offline-font-color
 
 .panel
   +default-theme
+  margin: 3em
   padding: 10px 20px 10px
   border: 4px solid $dark-border-color
   border-radius: 10px
+
+.players-list
+  font-style: italic
 
 .pulldown-toggle
   font-style: italic
@@ -92,5 +104,18 @@ footer
 
 .pulldown-content
   border: 1px solid $light-border-color
-  padding: 10px
+  padding: 1em 4em
   margin: 10px 0px
+  text-align: left
+  line-height: 1.5em
+  h3
+    padding-top: 1em
+  ol
+    list-style-type: lower-alpha
+    padding-left: 2em
+
+code
+  font-family: $code-font-face
+  padding: 0em 0.125em
+  background-color: lighten($default-bg-color, 5%)
+  border: 1px solid lighten($default-bg-color, 20%)
