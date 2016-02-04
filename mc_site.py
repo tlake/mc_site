@@ -24,7 +24,7 @@ Misaka(app)
 app.config.update(
     DEBUG=True,
     SECRET_KEY="man, who knows?",
-    SQLALCHEMY_DATABASE_URI="postgresql://flask:dew_it@localhost/mcdb"
+    SQLALCHEMY_DATABASE_URI="postgresql://ubuntu:postgres@localhost/mc_site_db"
 )
 
 
