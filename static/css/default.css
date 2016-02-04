@@ -211,8 +211,12 @@ footer {
   list-style-type: lower-alpha;
   padding-left: 2em;
 }
+/* line 138, ../sass/default.sass */
+.pulldown-content em {
+  font-weight: bold;
+}
 
-/* line 139, ../sass/default.sass */
+/* line 141, ../sass/default.sass */
 code {
   font-family: "Lucida Console", Monaco, monospace;
   padding: 0em 0.125em;
