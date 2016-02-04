@@ -11,10 +11,30 @@ $offline-font-color: #dd0909
 $default-bg-color: #222
 $light-border-color: #9d9d9d
 $dark-border-color: #080808
+$transparent-border-color: rgba(0, 0, 0, 0.2)
 $header-height: 4.5em
 $footer-height: 3em
 $default-link-color: #337ab7
 
+// piecemeal vars for =bg-cubes readability
+$cube-color1: #1d1d1d
+$cube-color2: #181818
+$cube-color3: #141414
+// horizontal diamonds
+$cubes1: linear-gradient(30deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
+$cubes2: linear-gradient(150deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
+$cubes3: linear-gradient(30deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
+$cubes4: linear-gradient(150deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
+// top-left to bottom-right diamonds
+$cubes5: linear-gradient(60deg, $cube-color2 25%, transparent 25.5%, transparent 75%, $cube-color2 75%, $cube-color2)
+$cubes6: linear-gradient(60deg, $cube-color2 25%, transparent 25.5%, transparent 75%, $cube-color2 75%, $cube-color2)
+
+
+=bg-cubes
+  background-color: $cube-color3 // top-right to bottom-left diamonds
+  background-image: $cubes1, $cubes2, $cubes3, $cubes4, $cubes5, $cubes6
+  background-size: 80px 140px
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px
 
 =default-theme
   background-color: $default-bg-color
@@ -52,6 +72,7 @@ p
 body
   height: 100%
   background-color: darken($default-bg-color, 20%)
+  +bg-cubes
 
 header
   +default-theme
@@ -89,7 +110,8 @@ footer
   +default-theme
   margin: 3em
   padding: 10px 20px 10px
-  border: 4px solid $dark-border-color
+  border: 8px solid $transparent-border-color
+  background-clip: padding-box
   border-radius: 10px
 
 .players-list

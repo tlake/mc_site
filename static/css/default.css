@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 24, ../sass/default.sass */
+/* line 44, ../sass/default.sass */
 html {
   height: 100%;
   box-sizing: border-box;
@@ -71,76 +71,80 @@ html {
   text-align: center;
 }
 
-/* line 30, ../sass/default.sass */
+/* line 50, ../sass/default.sass */
 h1 {
   font-size: 2.5em;
 }
 
-/* line 33, ../sass/default.sass */
+/* line 53, ../sass/default.sass */
 h2 {
   font-size: 2em;
   padding: 0.2em;
 }
 
-/* line 37, ../sass/default.sass */
+/* line 57, ../sass/default.sass */
 h3 {
   font-size: 1.35em;
   padding: 0.2em;
 }
 
-/* line 41, ../sass/default.sass */
+/* line 61, ../sass/default.sass */
 h4 {
   font-size: 0.85em;
   padding: 0.2em;
 }
 
-/* line 45, ../sass/default.sass */
+/* line 65, ../sass/default.sass */
 a {
   color: #337ab7;
   text-decoration: none;
 }
 
-/* line 49, ../sass/default.sass */
+/* line 69, ../sass/default.sass */
 p {
   padding: 0.2em 0em;
 }
 
-/* line 52, ../sass/default.sass */
+/* line 72, ../sass/default.sass */
 body {
   height: 100%;
   background-color: black;
+  background-color: #141414;
+  background-image: linear-gradient(30deg, #1d1d1d 12%, transparent 12.5%, transparent 87%, #1d1d1d 87.5%, #1d1d1d), linear-gradient(150deg, #1d1d1d 12%, transparent 12.5%, transparent 87%, #1d1d1d 87.5%, #1d1d1d), linear-gradient(30deg, #1d1d1d 12%, transparent 12.5%, transparent 87%, #1d1d1d 87.5%, #1d1d1d), linear-gradient(150deg, #1d1d1d 12%, transparent 12.5%, transparent 87%, #1d1d1d 87.5%, #1d1d1d), linear-gradient(60deg, #181818 25%, transparent 25.5%, transparent 75%, #181818 75%, #181818), linear-gradient(60deg, #181818 25%, transparent 25.5%, transparent 75%, #181818 75%, #181818);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
-/* line 56, ../sass/default.sass */
+/* line 77, ../sass/default.sass */
 header {
   background-color: #222;
   color: #9d9d9d;
   height: 4.5em;
   border-bottom: 1px solid #9d9d9d;
 }
-/* line 60, ../sass/default.sass */
+/* line 81, ../sass/default.sass */
 header h1 {
   padding: 0.5em;
 }
 
-/* line 63, ../sass/default.sass */
+/* line 84, ../sass/default.sass */
 #main-container {
   min-height: 100%;
   margin-bottom: 4.0625em;
 }
 
-/* line 67, ../sass/default.sass */
+/* line 88, ../sass/default.sass */
 #main-container:after {
   content: "";
   display: block;
 }
 
-/* line 71, ../sass/default.sass */
+/* line 92, ../sass/default.sass */
 footer, #main-container:after {
   height: 4.0625em;
 }
 
-/* line 74, ../sass/default.sass */
+/* line 95, ../sass/default.sass */
 footer {
   background-color: #222;
   color: #9d9d9d;
@@ -148,48 +152,49 @@ footer {
   border-top: 1px solid #9d9d9d;
 }
 
-/* line 79, ../sass/default.sass */
+/* line 100, ../sass/default.sass */
 .info {
   font-weight: bold;
 }
 
-/* line 82, ../sass/default.sass */
+/* line 103, ../sass/default.sass */
 .Online {
   color: #093;
 }
 
-/* line 85, ../sass/default.sass */
+/* line 106, ../sass/default.sass */
 .Offline {
   color: #dd0909;
 }
 
-/* line 88, ../sass/default.sass */
+/* line 109, ../sass/default.sass */
 .panel {
   background-color: #222;
   color: #9d9d9d;
   margin: 3em;
   padding: 10px 20px 10px;
-  border: 4px solid #080808;
+  border: 8px solid rgba(0, 0, 0, 0.2);
+  background-clip: padding-box;
   border-radius: 10px;
 }
 
-/* line 95, ../sass/default.sass */
+/* line 117, ../sass/default.sass */
 .players-list {
   font-style: italic;
 }
 
-/* line 98, ../sass/default.sass */
+/* line 120, ../sass/default.sass */
 .pulldown-toggle {
   font-style: italic;
   padding-top: 1em;
 }
 
-/* line 102, ../sass/default.sass */
+/* line 124, ../sass/default.sass */
 .pulldown {
   display: none;
 }
 
-/* line 105, ../sass/default.sass */
+/* line 127, ../sass/default.sass */
 .pulldown-content {
   border: 1px solid #9d9d9d;
   padding: 1em 4em;
@@ -197,17 +202,17 @@ footer {
   text-align: left;
   line-height: 1.5em;
 }
-/* line 111, ../sass/default.sass */
+/* line 133, ../sass/default.sass */
 .pulldown-content h3 {
   padding-top: 1em;
 }
-/* line 113, ../sass/default.sass */
+/* line 135, ../sass/default.sass */
 .pulldown-content ol {
   list-style-type: lower-alpha;
   padding-left: 2em;
 }
 
-/* line 117, ../sass/default.sass */
+/* line 139, ../sass/default.sass */
 code {
   font-family: "Lucida Console", Monaco, monospace;
   padding: 0em 0.125em;
