@@ -17,9 +17,9 @@ $footer-height: 3em
 $default-link-color: #337ab7
 
 // piecemeal vars for =bg-cubes readability
-$cube-color1: #1d1d1d
-$cube-color2: #181818
-$cube-color3: #141414
+$cube-color1: rgba(25, 29, 23, 1) // rgba(29, 29, 29, 1)
+$cube-color2: rgba(28, 23, 20, 1) // rgba(24, 24, 24, 1)
+$cube-color3: rgba(27, 21, 19, 1) // rgba(20, 20, 20, 1)
 // horizontal diamonds
 $cubes1: linear-gradient(30deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
 $cubes2: linear-gradient(150deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
@@ -108,7 +108,7 @@ footer
 
 .panel
   +default-theme
-  margin: 3em
+  margin: 3em 12em
   padding: 10px 20px 10px
   border: 8px solid $transparent-border-color
   background-clip: padding-box
