@@ -13,13 +13,16 @@ $light-border-color: #9d9d9d
 $dark-border-color: #080808
 $transparent-border-color: rgba(0, 0, 0, 0.2)
 $header-height: 4.5em
-$footer-height: 3em
+$footer-height: 40px
+$footer-border-width: 1px
 $default-link-color: #337ab7
 
 // piecemeal vars for =bg-cubes readability
-$cube-color1: rgba(25, 28, 23, 1) // rgba(29, 29, 29, 1)
-$cube-color2: rgba(25, 18, 17, 1) // rgba(24, 24, 24, 1)
-$cube-color3: rgba(24, 16, 16, 1) // rgba(20, 20, 20, 1)
+$cube-pos1: 60px
+$cube-pos2: 105px
+$cube-color1: rgb(30, 36, 22) // rgba(29, 29, 29, 1)
+$cube-color2: rgb(38, 25, 12) // rgba(24, 24, 24, 1)
+$cube-color3: rgb(32, 19, 8) // rgba(20, 20, 20, 1)
 // horizontal diamonds
 $cubes1: linear-gradient(30deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
 $cubes2: linear-gradient(150deg, $cube-color1 12%, transparent 12.5%, transparent 87%, $cube-color1 87.5%, $cube-color1)
@@ -33,8 +36,8 @@ $cubes6: linear-gradient(60deg, $cube-color2 25%, transparent 25.5%, transparent
 =bg-cubes
   background-color: $cube-color3 // top-right to bottom-left diamonds
   background-image: $cubes1, $cubes2, $cubes3, $cubes4, $cubes5, $cubes6
-  background-size: 80px 140px
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px
+  background-size: 2*$cube-pos1 2*$cube-pos2
+  background-position: 0 0, 0 0, $cube-pos1 $cube-pos2, $cube-pos1 $cube-pos2, 0 0, $cube-pos1 $cube-pos2
 
 =default-theme
   background-color: $default-bg-color
@@ -42,8 +45,10 @@ $cubes6: linear-gradient(60deg, $cube-color2 25%, transparent 25.5%, transparent
 
 
 html
-  height: 100%
-  box-sizing: border-box
+  min-height: 100%
+  height: auto !important
+  position: relative
+  // box-sizing: border-box
   font-family: $default-font-face
   text-align: center
 
@@ -70,7 +75,8 @@ p
   padding: 0.2em 0em
 
 body
-  height: 100%
+  min-height: 100%
+  margin: 0 0 $footer-height
   background-color: darken($default-bg-color, 20%)
   +bg-cubes
 
@@ -82,19 +88,18 @@ header
     padding: 0.5em
 
 #main-container
-  min-height: 100%
-  margin-bottom: 4.0625em
-
-#main-container:after
-  content: ""
-  display: block
-
-footer, #main-container:after
-  height: 4.0625em
+  height: 100%
+  margin-bottom: -$footer-height
+  padding-bottom: $footer-height
 
 footer
   +default-theme
   font-style: italic
+  height: $footer-height
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 100%
   border-top: 1px solid $light-border-color
 
 .info
@@ -120,6 +125,7 @@ footer
 .pulldown-toggle
   font-style: italic
   padding-top: 1em
+  cursor: pointer
 
 .pulldown
   display: none
@@ -137,6 +143,9 @@ footer
     padding-left: 2em
   em
     font-weight: bold
+
+.pulldown-close
+  cursor: pointer
 
 code
   font-family: $code-font-face
