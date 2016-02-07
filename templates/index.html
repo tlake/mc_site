@@ -11,6 +11,15 @@
     <h1>TPants MC Server Status</h1>
   </header>
 
+  {% if messages %}
+  {% for message in messages %}
+  <div class="message-panel">
+    <h3>{{ message.title }} - {{ message.created }}</h3>
+    {{ message.body|markdown }}
+  </div>
+  {% endfor %}
+  {% endif %}
+
   <div id="content-container">
     {% if servers %}
     {% for server in servers %}

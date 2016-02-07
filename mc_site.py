@@ -55,6 +55,20 @@ class Server(db.Model):
         default=db.func.current_timestamp(),
     )
 
+
+class Message(db.Model):
+    """Model for message to be displayed on the site."""
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(256))
+    display = db.Column(db.Boolean)
+    body = db.Column(db.Text)
+    created = db.Column(
+        db.DateTime,
+        default=db.func.current_timestamp(),
+    )
+
+
 db.create_all()
 db.session.commit()
 
@@ -65,6 +79,7 @@ db.session.commit()
 
 admin = Admin(app)
 admin.add_view(ModelView(Server, db.session))
+admin.add_view(ModelView(Message, db.session))
 
 
 ################################
@@ -74,8 +89,9 @@ admin.add_view(ModelView(Server, db.session))
 @app.route("/")
 def index():
     """Index (and only) page of site."""
-    server_objects = Server.query.all()
     render_obj = []
+    message_objects = Message.query.filter_by(display=True).all()
+    server_objects = Server.query.all()
 
     for server in server_objects:
         address = server.address
@@ -122,7 +138,11 @@ def index():
 
             render_obj.append(add_to_render)
 
-    return render_template("index.html", servers=render_obj)
+    return render_template(
+        "index.html",
+        servers=render_obj,
+        messages=message_objects,
+    )
 
 
 # if __name__ == "__main__":

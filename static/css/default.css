@@ -129,11 +129,24 @@ header h1 {
 }
 
 /* line 97, ../sass/default.sass */
+.message-panel {
+  background-color: #a2a2a2;
+  border-radius: 4px;
+  margin: 1em 1em 0em;
+  padding: 1em;
+  text-align: left;
+}
+/* line 104, ../sass/default.sass */
+.message-panel h3 {
+  font-weight: bold;
+}
+
+/* line 107, ../sass/default.sass */
 #content-container {
   margin-bottom: 5em;
 }
 
-/* line 100, ../sass/default.sass */
+/* line 110, ../sass/default.sass */
 footer {
   position: absolute;
   left: 0;
@@ -146,22 +159,22 @@ footer {
   border-top: 1px solid #9d9d9d;
 }
 
-/* line 110, ../sass/default.sass */
+/* line 120, ../sass/default.sass */
 .info {
   font-weight: bold;
 }
 
-/* line 113, ../sass/default.sass */
+/* line 123, ../sass/default.sass */
 .Online {
   color: #093;
 }
 
-/* line 116, ../sass/default.sass */
+/* line 126, ../sass/default.sass */
 .Offline {
   color: #dd0909;
 }
 
-/* line 119, ../sass/default.sass */
+/* line 129, ../sass/default.sass */
 .panel {
   background-color: #222;
   color: #9d9d9d;
@@ -172,48 +185,48 @@ footer {
   border-radius: 10px;
 }
 
-/* line 127, ../sass/default.sass */
+/* line 137, ../sass/default.sass */
 .players-summary {
   margin: 1em 0;
 }
 
-/* line 130, ../sass/default.sass */
+/* line 140, ../sass/default.sass */
 .players-list {
   font-style: italic;
   margin-bottom: 1em;
 }
 
-/* line 134, ../sass/default.sass */
+/* line 144, ../sass/default.sass */
 hr {
   border-color: #9d9d9d;
   width: 16em;
 }
 
-/* line 138, ../sass/default.sass */
+/* line 148, ../sass/default.sass */
 .pulldown-toggle {
   font-style: italic;
   border-radius: 4px;
 }
 
-/* line 142, ../sass/default.sass */
+/* line 152, ../sass/default.sass */
 .pulldown-close {
   padding: 0.5em 0;
   border-radius: 4px;
 }
 
-/* line 146, ../sass/default.sass */
+/* line 156, ../sass/default.sass */
 .pulldown-toggle:hover,
 .pulldown-close:hover {
   cursor: pointer;
   background-color: #2f2f2f;
 }
 
-/* line 151, ../sass/default.sass */
+/* line 161, ../sass/default.sass */
 .pulldown {
   display: none;
 }
 
-/* line 154, ../sass/default.sass */
+/* line 164, ../sass/default.sass */
 .pulldown-content {
   border: 1px solid #9d9d9d;
   padding: 1em 4em;
@@ -221,21 +234,21 @@ hr {
   text-align: left;
   line-height: 1.5em;
 }
-/* line 160, ../sass/default.sass */
+/* line 170, ../sass/default.sass */
 .pulldown-content h3 {
   padding-top: 1em;
 }
-/* line 162, ../sass/default.sass */
+/* line 172, ../sass/default.sass */
 .pulldown-content ol {
   list-style-type: lower-alpha;
   padding-left: 2em;
 }
-/* line 165, ../sass/default.sass */
+/* line 175, ../sass/default.sass */
 .pulldown-content em {
   font-weight: bold;
 }
 
-/* line 168, ../sass/default.sass */
+/* line 178, ../sass/default.sass */
 code {
   font-family: "Lucida Console", Monaco, monospace;
   padding: 0em 0.125em;
