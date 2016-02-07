@@ -77,8 +77,13 @@ def index():
 
         try:
             conn.ping()
-        except ConnectionRefusedError:
-            # except:
+        # except ConnectionRefusedError:
+        # Commented out because for some reason on the production server,
+        # attempting to catch this error causes the site to break and display
+        # 'Internal Server Error'. Logs from such events say that
+        # 'ConnectionRefusedError' is undefined, although there seem to be no
+        # issues when testing locally.
+        except:
             render_obj.append({
                 "address": address,
                 "port": port,
@@ -89,9 +94,6 @@ def index():
         else:
             add_to_render = {}
             q = conn.query()
-
-            # import pdb; pdb.set_trace()
-
             motd = q.motd
             players = {
                 "max": q.players.max,
