@@ -77,6 +77,16 @@ def index():
 
         try:
             conn.ping()
+        except ConnectionRefusedError:
+            # except:
+            render_obj.append({
+                "address": address,
+                "port": port,
+                "modpack_version": server.modpack_version,
+                "client_config": server.client_config,
+                "status": "Offline",
+            })
+        else:
             add_to_render = {}
             q = conn.query()
 
@@ -102,14 +112,6 @@ def index():
             })
 
             render_obj.append(add_to_render)
-        except ConnectionRefusedError:
-            render_obj.append({
-                "address": address,
-                "port": port,
-                "modpack_version": server.modpack_version,
-                "client_config": server.client_config,
-                "status": "Offline",
-            })
 
     return render_template("index.html", servers=render_obj)
 
