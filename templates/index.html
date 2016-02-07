@@ -23,13 +23,14 @@
       <p>Location: <span class="info">{{ server.address }}:{{ server.port }}</span></p>
       <p>Status: <span class="info {{ server.status }}">{{ server.status }}</span></p>
       {% if server.players %}
-      <p>{{ server.players.online }}/{{ server.players.max }} Players</p>
+      <p class="players-summary">{{ server.players.online }}/{{ server.players.max }} Players</p>
       <ul class="players-list">
         {% for player in server.players.names %}
           <li>{{ player }}</li>
         {% endfor %}
       </ul>
       {% endif %}
+      <hr />
       <div class="pulldown-toggle">
         <h3>Client Configuration:</h3>
         <i class="fa fa-chevron-down"></i>
