@@ -6,14 +6,14 @@
   <title>TPants MC</title>
 </head>
 <body>
-  <div id="main-container">
 
-    <header>
-      <h1>TPants MC Server Status</h1>
-    </header>
+  <header>
+    <h1>TPants MC Server Status</h1>
+  </header>
 
-  {% if servers %}
-  {% for server in servers %}
+  <div id="content-container">
+    {% if servers %}
+    {% for server in servers %}
     <div class="panel">
       <h2>{{ server.motd }}</h2>
       <p>Modpack Version: <span class="info">{{ server.modpack_version }}</span></p>
@@ -50,7 +50,6 @@
       <p>We don't seem to have any servers up for monitoring right now.</p>
     </div>
     {% endif %}
-
   </div>
 
   <footer>
@@ -59,28 +58,7 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  <script>
-    $(".pulldown-toggle").click(function () {
-      var pulldown = $(this).next('.pulldown');
-      var chevron = $(this).children("i");
+  <script src="/static/js/pulldown.js"></script>
 
-      if (pulldown.is(':visible')) {
-        pulldown.slideUp();
-        chevron.removeClass("fa-chevron-up").addClass("fa-chevron-down");
-      } else {
-        pulldown.slideDown();
-        chevron.removeClass("fa-chevron-down").addClass("fa-chevron-up");
-      }
-    });
-
-    $(".pulldown-close").click(function () {
-      var pulldown = $(this).parent(".pulldown");
-      var chevron = $(this).parent().prev(".pulldown-toggle").children("i");
-
-      pulldown.slideUp();
-      chevron.removeClass("fa-chevron-up").addClass("fa-chevron-down");
-
-    });
-  </script>
 </body>
 </html>

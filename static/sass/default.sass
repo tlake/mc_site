@@ -13,7 +13,7 @@ $light-border-color: #9d9d9d
 $dark-border-color: #080808
 $transparent-border-color: rgba(0, 0, 0, 0.2)
 $header-height: 4.5em
-$footer-height: 40px
+$footer-height: 3em
 $footer-border-width: 1px
 $default-link-color: #337ab7
 
@@ -45,10 +45,9 @@ $cubes6: linear-gradient(60deg, $cube-color2 25%, transparent 25.5%, transparent
 
 
 html
-  min-height: 100%
-  height: auto !important
-  position: relative
-  // box-sizing: border-box
+  min-height: 100% // Needed for sticky footer
+  position: relative // Needed for sticky footer
+  box-sizing: border-box
   font-family: $default-font-face
   text-align: center
 
@@ -75,8 +74,8 @@ p
   padding: 0.2em 0em
 
 body
-  min-height: 100%
-  margin: 0 0 $footer-height
+  // min-height: 100%
+  margin: 0 0 $footer-height // Needed for sticky footer
   background-color: darken($default-bg-color, 20%)
   +bg-cubes
 
@@ -87,19 +86,17 @@ header
   h1
     padding: 0.5em
 
-#main-container
-  height: 100%
-  margin-bottom: -$footer-height
-  padding-bottom: $footer-height
+#content-container
+  margin-bottom: $footer-height+2em
 
 footer
+  position: absolute // Needed for sticky footer
+  left: 0 // Needed for sticky footer
+  bottom: 0 // Needed for sticky footer
+  height: $footer-height // Needed for sticky footer
+  width: 100% // Needed for sticky footer
   +default-theme
   font-style: italic
-  height: $footer-height
-  position: absolute
-  left: 0
-  bottom: 0
-  width: 100%
   border-top: 1px solid $light-border-color
 
 .info
