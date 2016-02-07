@@ -14,17 +14,24 @@ from flask_admin.contrib.sqla import ModelView
 
 from mcstatus import MinecraftServer
 
+import os
+
 
 ################################
 # APP SETTINGS
 ################################
+
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+DB_CRED = DB_USER + ":" + DB_PASS
+DB_NAME = "mc_site_db"
 
 app = Flask(__name__)
 Misaka(app)
 app.config.update(
     DEBUG=True,
     SECRET_KEY="man, who knows?",
-    SQLALCHEMY_DATABASE_URI="postgresql://ubuntu:postgres@localhost/mc_site_db"
+    SQLALCHEMY_DATABASE_URI="postgresql://" + DB_CRED + "@localhost/" + DB_NAME
 )
 
 
