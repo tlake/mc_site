@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 47, ../sass/default.sass */
+/* line 55, ../sass/default.sass */
 html {
   min-height: 100%;
   position: relative;
@@ -72,41 +72,41 @@ html {
   text-align: center;
 }
 
-/* line 54, ../sass/default.sass */
+/* line 62, ../sass/default.sass */
 h1 {
   font-size: 2.5em;
 }
 
-/* line 57, ../sass/default.sass */
+/* line 65, ../sass/default.sass */
 h2 {
   font-size: 2em;
   padding: 0.2em;
 }
 
-/* line 61, ../sass/default.sass */
+/* line 69, ../sass/default.sass */
 h3 {
   font-size: 1.35em;
   padding: 0.2em;
 }
 
-/* line 65, ../sass/default.sass */
+/* line 73, ../sass/default.sass */
 h4 {
   font-size: 0.85em;
   padding: 0.2em;
 }
 
-/* line 69, ../sass/default.sass */
+/* line 77, ../sass/default.sass */
 a {
   color: #337ab7;
   text-decoration: none;
 }
 
-/* line 73, ../sass/default.sass */
+/* line 81, ../sass/default.sass */
 p {
   padding: 0.2em 0em;
 }
 
-/* line 76, ../sass/default.sass */
+/* line 84, ../sass/default.sass */
 body {
   margin: 0 0 3em;
   background-color: black;
@@ -116,24 +116,24 @@ body {
   background-position: 0 0, 0 0, 60px 105px, 60px 105px, 0 0, 60px 105px;
 }
 
-/* line 82, ../sass/default.sass */
+/* line 90, ../sass/default.sass */
 header {
   background-color: #222;
   color: #9d9d9d;
   height: 4.5em;
   border-bottom: 1px solid #9d9d9d;
 }
-/* line 86, ../sass/default.sass */
+/* line 94, ../sass/default.sass */
 header h1 {
   padding: 0.5em;
 }
 
-/* line 89, ../sass/default.sass */
+/* line 97, ../sass/default.sass */
 #content-container {
   margin-bottom: 5em;
 }
 
-/* line 92, ../sass/default.sass */
+/* line 100, ../sass/default.sass */
 footer {
   position: absolute;
   left: 0;
@@ -146,22 +146,22 @@ footer {
   border-top: 1px solid #9d9d9d;
 }
 
-/* line 102, ../sass/default.sass */
+/* line 110, ../sass/default.sass */
 .info {
   font-weight: bold;
 }
 
-/* line 105, ../sass/default.sass */
+/* line 113, ../sass/default.sass */
 .Online {
   color: #093;
 }
 
-/* line 108, ../sass/default.sass */
+/* line 116, ../sass/default.sass */
 .Offline {
   color: #dd0909;
 }
 
-/* line 111, ../sass/default.sass */
+/* line 119, ../sass/default.sass */
 .panel {
   background-color: #222;
   color: #9d9d9d;
@@ -172,24 +172,37 @@ footer {
   border-radius: 10px;
 }
 
-/* line 119, ../sass/default.sass */
+/* line 127, ../sass/default.sass */
 .players-list {
   font-style: italic;
 }
 
-/* line 122, ../sass/default.sass */
+/* line 130, ../sass/default.sass */
 .pulldown-toggle {
   font-style: italic;
-  padding-top: 1em;
-  cursor: pointer;
+  margin-top: 1em;
+  border-radius: 4px;
 }
 
-/* line 127, ../sass/default.sass */
+/* line 135, ../sass/default.sass */
+.pulldown-close {
+  padding: 0.5em 0;
+  border-radius: 4px;
+}
+
+/* line 139, ../sass/default.sass */
+.pulldown-toggle:hover,
+.pulldown-close:hover {
+  cursor: pointer;
+  background-color: #2f2f2f;
+}
+
+/* line 144, ../sass/default.sass */
 .pulldown {
   display: none;
 }
 
-/* line 130, ../sass/default.sass */
+/* line 147, ../sass/default.sass */
 .pulldown-content {
   border: 1px solid #9d9d9d;
   padding: 1em 4em;
@@ -197,26 +210,21 @@ footer {
   text-align: left;
   line-height: 1.5em;
 }
-/* line 136, ../sass/default.sass */
+/* line 153, ../sass/default.sass */
 .pulldown-content h3 {
   padding-top: 1em;
 }
-/* line 138, ../sass/default.sass */
+/* line 155, ../sass/default.sass */
 .pulldown-content ol {
   list-style-type: lower-alpha;
   padding-left: 2em;
 }
-/* line 141, ../sass/default.sass */
+/* line 158, ../sass/default.sass */
 .pulldown-content em {
   font-weight: bold;
 }
 
-/* line 144, ../sass/default.sass */
-.pulldown-close {
-  cursor: pointer;
-}
-
-/* line 147, ../sass/default.sass */
+/* line 161, ../sass/default.sass */
 code {
   font-family: "Lucida Console", Monaco, monospace;
   padding: 0em 0.125em;

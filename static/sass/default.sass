@@ -3,20 +3,28 @@
 @import "compass/css3/transition"
 
 
+// FONTS
 $default-font-face: "Helvetica Neue", Helvetica, Arial, sans-serif
 $code-font-face: "Lucida Console", Monaco, monospace
 $default-font-color: #9d9d9d
 $online-font-color: #093
 $offline-font-color: #dd0909
+
+// BACKGROUNDS
 $default-bg-color: #222
+
+// BORDERS
 $light-border-color: #9d9d9d
 $dark-border-color: #080808
 $transparent-border-color: rgba(0, 0, 0, 0.2)
+
+// ELEMENT SPECIFICS
 $header-height: 4.5em
 $footer-height: 3em
 $footer-border-width: 1px
 $default-link-color: #337ab7
 
+// BACKGROUND PATTERN
 // piecemeal vars for =bg-cubes readability
 $cube-pos1: 60px
 $cube-pos2: 105px
@@ -121,8 +129,17 @@ footer
 
 .pulldown-toggle
   font-style: italic
-  padding-top: 1em
+  margin-top: 1em
+  border-radius: 4px
+
+.pulldown-close
+  padding: 0.5em 0
+  border-radius: 4px
+
+.pulldown-toggle:hover,
+.pulldown-close:hover
   cursor: pointer
+  background-color: lighten($default-bg-color, 5%)
 
 .pulldown
   display: none
@@ -140,9 +157,6 @@ footer
     padding-left: 2em
   em
     font-weight: bold
-
-.pulldown-close
-  cursor: pointer
 
 code
   font-family: $code-font-face
