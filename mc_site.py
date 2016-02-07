@@ -46,7 +46,7 @@ class Server(db.Model):
     """Server model."""
 
     id = db.Column(db.Integer, primary_key=True)
-    address = db.Column(db.String(16))
+    address = db.Column(db.String(128))
     port = db.Column(db.Integer)
     modpack_version = db.Column(db.String(64))
     client_config = db.Column(db.Text)
