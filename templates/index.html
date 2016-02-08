@@ -14,8 +14,9 @@
   {% if messages %}
   {% for message in messages %}
   <div class="message-panel">
-    <h3>{{ message.title }} - {{ message.created }}</h3>
+    <h3>{{ message.title }}</h3>
     {{ message.body|markdown }}
+    <h4>{{ message.created }}</h4>
   </div>
   {% endfor %}
   {% endif %}
@@ -64,7 +65,7 @@
 
   <footer>
     <h4>Powered by <a href="http://flask.pocoo.org">Flask</a> and <a href="http://github.com/Dinnerbone/mcstatus">mcstatus</a>.</h4>
-    <h4>&copy; 2016 Tanner Lake</h4>
+    <h4>&copy; 2016 <a href="http://tannerjlake.com">Tanner Lake</a></h4>
   </footer>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
