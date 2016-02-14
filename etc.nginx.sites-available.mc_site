@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name minecraft.tannerjlake.com;
+    server_name mcstatus.tannerjlake.com minecraft.tannerjlake.com;
     access_log /var/log/nginx/mc_site.log;
     error_log /var/log/nginx/mc_site_error.log;
 
