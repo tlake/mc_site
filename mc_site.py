@@ -5,7 +5,7 @@ Displays server status as well as client configuration and connection
 information.
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask.ext.misaka import Misaka
 from flask.ext.sqlalchemy import SQLAlchemy
 
@@ -145,5 +145,41 @@ def index():
     )
 
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0")
+################################
+# RESTful VIEWS
+################################
+
+@app.route("/query", methods=["GET"])
+def query():
+    address = request.args.get("address")
+    port = int(request.args.get("port"))
+    conn = MinecraftServer(address, port)
+
+    try:
+        conn.ping()
+    # except ConnectionRefusedError:
+    # Commented out because for some reason on the production server,
+    # attempting to catch this error causes the site to break and display
+    # 'Internal Server Error'. Logs from such events say that
+    # 'ConnectionRefusedError' is undefined, although there seem to be no
+    # issues when testing locally.
+    except:
+        response = jsonify({
+            "status": "Offline",
+            "players_online": 0,
+            "player_names": None,
+        })
+    else:
+        q = conn.query()
+        response = jsonify({
+            "status": "Online",
+            "players_online": q.players.online,
+            "players_max": q.players.max,
+            "player_names": q.players.names,
+        })
+
+    return response
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
