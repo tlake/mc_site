@@ -40,19 +40,34 @@ function makeQuery (address, port) {
   })
 };
 
-function queryServers (servers) {
-  $.find(".server").each(function () {
-    var locInfo = $(this).(".location > span").text().split(":");
+function queryServers () {
+  $(".server").each(function () {
+    var elem = $(this);
+    var locInfo = elem.find(".location > span").text().split(":");
     makeQuery(locInfo[0], locInfo[1]).done(function (response) {
-      var playersList = [];
-      for (name in response.player_names) {
-        playersList.push("<li>" + name + "</li>")
-      };
-      $(this).find(".status > span").html(response.status);
-      $(this).find(".players-summary").html(
-        response.players_online + "/" + response.players_max
+      names = response.player_names;
+      var playersList = "";
+      for (var i = 0; i < names.length; i++) {
+        playersList = playersList + "<li>" + names[i] + "</li>";
+      }
+      elem.find(".status > span").html(response.status);
+      elem.find(".players-summary").html(
+        response.players_online + "/" + response.players_max + " Players"
       );
-      $(this).find("ul").html(playersList);
-    });
+      if (playersList) {
+        elem.find("ul").html(playersList);
+      } else {
+        elem.find("ul").html("");
+      }
+    })
   })
 };
+
+
+// ################
+// READY
+// ################
+
+$(function () {
+  setInterval(queryServers, 5000);
+});
